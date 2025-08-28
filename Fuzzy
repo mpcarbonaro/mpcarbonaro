@@ -1,1 +1,1347 @@
 
+
+//******************************Criado Por Mytchan Phylipe Carbonaro*********************************//
+
+//****************************** Funcao de Pertinencia do Erro*****************************************//
+
+IF  erro <= -100 then
+ pertinencia_erro_LL := 1;
+
+ELSIF  erro >-100 and erro <=-50 then
+  pertinencia_erro_LL  := (-50-erro)/50;
+
+ELSE 
+   pertinencia_erro_LL  := 0;
+End_IF;
+
+
+IF  erro > -100 and erro <= -50  then
+   pertinencia_erro_L := (erro + 100) / 50;
+
+ELSIF  erro > -50 and erro <= 0 then
+
+   pertinencia_erro_L := (0 - erro) / 50;
+ELSE 
+   pertinencia_erro_L := 0;
+    
+End_IF;
+
+IF  erro > -50 and erro <= 0  then
+   pertinencia_erro_N :=(erro + 50) / 50;
+
+ELSIF  erro > 0 and erro <= 50 then
+   pertinencia_erro_N := (50 - erro) / 50;
+
+ELSE 
+   pertinencia_erro_N:= 0;
+     
+End_IF;
+
+
+IF  erro > 0 and erro <= 50  then
+   pertinencia_erro_H :=(erro - 0) / 50;
+
+ELSIF  erro > 50 and erro <= 100 then
+   pertinencia_erro_H := (erro - 50) / 50;
+
+ELSE 
+   pertinencia_erro_H:= 0;
+     
+End_IF;
+
+IF  erro >= 100  then
+   pertinencia_erro_HH :=1;
+
+ELSIF  erro >= 50 and erro < 100 then
+   pertinencia_erro_HH := (erro - 50) / 50;
+
+ELSE 
+  pertinencia_erro_HH:= 0;
+     
+End_IF;
+
+//****************************** Funcao de Pertinencia do Feedback do MOTOR*****************************************//
+// X1: 0 a 5
+
+IF frequencia <= 0  then
+   pertinencia_X1 :=1;
+
+ELSIF frequencia > 0 and frequencia  <= 5 then
+   pertinencia_X1 := (5 - frequencia) / 5;
+
+ELSE 
+  pertinencia_X1:= 0;
+     
+End_IF;
+
+// X2: 0 a 10
+IF frequencia > 0 and frequencia <= 5 then
+   pertinencia_X2 :=frequencia / 5;
+
+ELSIF frequencia > 5 and frequencia  <= 10 then
+   pertinencia_X2 := (10 - frequencia) / 5;
+
+ELSE 
+  pertinencia_X2:= 0;
+     
+End_IF;
+
+
+//X3: 5 a 15
+IF frequencia > 5 and frequencia <= 10 then
+   pertinencia_X3 :=(frequencia - 5) / 5;
+
+ELSIF frequencia > 10 and frequencia  <= 15 then
+   pertinencia_X3 := (15 - frequencia) / 5;
+
+ELSE 
+  pertinencia_X3:= 0;
+    
+End_IF;
+
+//X4: 10 a 20 
+IF frequencia > 10 and frequencia <= 15 then
+  pertinencia_X4:=(frequencia - 10) / 5;
+
+ELSIF frequencia > 15 and frequencia  <= 20 then
+   pertinencia_X4:= (20 - frequencia) / 5;
+
+ELSE 
+  pertinencia_X4:= 0;
+     
+End_IF;
+
+
+//X5: 15 a 25
+IF frequencia > 15 and frequencia <=  20 then
+   pertinencia_X5:= (frequencia - 15) / 5;
+
+ELSIF frequencia > 20  and frequencia  <= 25 then
+  pertinencia_X5 := (25 - frequencia) / 5;
+
+ELSE 
+  pertinencia_X5:= 0;
+     
+End_IF;
+
+
+//X6: 20 a 30
+IF frequencia >  20 and frequencia <=  25 then
+   pertinencia_X6:= (frequencia - 20) / 5;
+
+ELSIF frequencia > 25  and frequencia  <=  30 then
+  pertinencia_X6 := (30 - frequencia) / 5;
+
+ELSE 
+  pertinencia_X6:= 0;
+     
+End_IF;
+
+//X7: 25 a 35
+IF frequencia > 25 and frequencia <=  30 then
+  pertinencia_X7:= (frequencia - 25) / 5;
+
+ELSIF frequencia > 30  and frequencia  <= 35 then
+  pertinencia_X7 := (35 - frequencia) / 5;
+
+ELSE 
+ pertinencia_X7:= 0;
+     
+End_IF;
+
+// X8: 30 a 40
+IF frequencia > 30 and frequencia <= 35 then
+  pertinencia_X8:= (frequencia -30 ) / 5;
+
+ELSIF frequencia >  35 and frequencia  <= 40 then
+  pertinencia_X8 := (40 - frequencia) / 5;
+
+ELSE 
+ pertinencia_X8:= 0;
+     
+End_IF;
+
+// X9: 35 a 45
+IF frequencia > 35 and frequencia <=  40 then
+  pertinencia_X9:= (frequencia -35 ) / 5;
+
+ELSIF frequencia >  40 and frequencia  <= 45 then
+  pertinencia_X9 := (45 - frequencia) / 5;
+
+ELSE 
+ pertinencia_X9:= 0;
+     
+End_IF;
+
+// X10:40 a 50
+IF frequencia > 40 and frequencia <=  45 then
+  pertinencia_X10:= (frequencia - 40 ) / 5;
+
+ELSIF frequencia > 45 and frequencia  <= 50 then
+  pertinencia_X10 := (50 - frequencia) / 5;
+
+ELSE 
+ pertinencia_X10:= 0;
+     
+End_IF;
+
+// X11:45 a 55
+IF frequencia > 45 and frequencia <=  50 then
+  pertinencia_X11:= (frequencia - 45 ) / 5;
+
+ELSIF frequencia > 50 and frequencia  <= 55 then
+  pertinencia_X11 := (55 - frequencia) / 5;
+
+ELSE 
+ pertinencia_X11:= 0;
+     
+End_IF;
+
+// X12:50 a 60
+IF frequencia > 50 and frequencia <=  55 then
+  pertinencia_X12:= (frequencia - 50) / 5;
+
+ELSIF frequencia > 55 and frequencia  <= 60 then
+  pertinencia_X12 := (60 - frequencia) / 5;
+
+ELSE 
+ pertinencia_X12:= 0;
+     
+End_IF;
+
+// X13:55 a 65
+IF frequencia > 55 and frequencia <=  60 then
+  pertinencia_X13:= (frequencia - 55) / 5;
+
+ELSIF frequencia > 60 and frequencia  <= 65 then
+  pertinencia_X13 := (65 - frequencia) / 5;
+
+ELSE 
+ pertinencia_X13:= 0;
+     
+End_IF;
+
+// X14:60 a 70
+IF frequencia > 60 and frequencia <=  65 then
+  pertinencia_X14:= (frequencia - 60) / 5;
+
+ELSIF frequencia > 65 and frequencia  <= 70 then
+  pertinencia_X14 := (70 - frequencia) / 5;
+
+ELSE 
+ pertinencia_X14:= 0;
+     
+End_IF;
+
+// X15:65 a 75
+IF frequencia > 65 and frequencia <=  70 then
+  pertinencia_X15:= (frequencia - 65) / 5;
+
+ELSIF frequencia > 70 and frequencia  <= 75 then
+  pertinencia_X15 := (75 - frequencia) / 5;
+
+ELSE 
+ pertinencia_X15:= 0;
+     
+End_IF;
+
+// X16:70 a 80
+IF frequencia > 70 and frequencia <=  75 then
+  pertinencia_X16:= (frequencia - 70) / 5;
+
+ELSIF frequencia > 75 and frequencia  <= 80 then
+  pertinencia_X16 := (80 - frequencia) / 5;
+
+ELSE 
+ pertinencia_X16:= 0;
+     
+End_IF;
+
+// X17:75 a 85
+IF frequencia > 75 and frequencia <=  80 then
+  pertinencia_X17:= (frequencia - 75) / 5;
+
+ELSIF frequencia > 80 and frequencia  <= 85 then
+  pertinencia_X17 := (85 - frequencia) / 5;
+
+ELSE 
+ pertinencia_X17:= 0;
+     
+End_IF;
+
+// X18:80 a 90
+IF frequencia > 80 and frequencia <=  85 then
+  pertinencia_X18:= (frequencia - 80) / 5;
+
+ELSIF frequencia > 85 and frequencia  <= 90 then
+  pertinencia_X18 := (90 - frequencia) / 5;
+
+ELSE 
+ pertinencia_X18:= 0;
+     
+End_IF;
+
+// X19:85 a 95
+IF frequencia > 85 and frequencia <=  90 then
+  pertinencia_X19:= (frequencia - 85) / 5;
+
+ELSIF frequencia > 90 and frequencia  <= 95 then
+  pertinencia_X19 := (95 - frequencia) / 5;
+
+ELSE 
+ pertinencia_X19:= 0;
+     
+End_IF;
+
+// X20:90 a 100
+IF frequencia > 90 and frequencia <=  95 then
+  pertinencia_X20:= (frequencia - 90) / 5;
+
+ELSIF frequencia > 95 and frequencia  <= 100 then
+  pertinencia_X20 := (100 - frequencia) / 5;
+
+ELSE 
+ pertinencia_X20:= 0;
+     
+End_IF;
+
+// X21:95 a 100
+IF frequencia > 95 and frequencia <=  100 then
+  pertinencia_X21:= (frequencia - 95) / 5;
+
+ELSE 
+ pertinencia_X21:= 0;
+     
+End_IF;
+
+
+//******************************Aplica regras*********************************************************************************//
+
+IF pertinencia_erro_LL > pertinencia_X1 then
+   min_regra_01 := pertinencia_X1;
+ELSE 
+   min_regra_01 := pertinencia_erro_LL;
+End_IF;
+
+IF pertinencia_erro_LL > pertinencia_X2 then
+   min_regra_02 := pertinencia_X2 ;
+ELSE 
+   min_regra_02 := pertinencia_erro_LL;
+End_IF;
+
+IF pertinencia_erro_L > pertinencia_X1 then
+   min_regra_03 := pertinencia_X1;
+ELSE 
+   min_regra_03 := pertinencia_erro_L;
+End_IF;
+
+IF pertinencia_erro_L > pertinencia_X2 then
+   min_regra_04 := pertinencia_X2 ;
+ELSE 
+   min_regra_04 := pertinencia_erro_L;
+End_IF;
+
+IF pertinencia_erro_N > pertinencia_X1  then
+   min_regra_05 := pertinencia_X1;
+ELSE 
+   min_regra_05 := pertinencia_erro_N;
+End_IF;
+
+IF  min_regra_01 >  min_regra_02 and min_regra_01 >  min_regra_03 and min_regra_01 >  min_regra_04 and min_regra_01 >  min_regra_05 then
+    A_ativacao := min_regra_01;
+
+ELSIF  min_regra_02 >  min_regra_03 and min_regra_02 >  min_regra_04 and min_regra_02 >  min_regra_05  then
+    A_ativacao := min_regra_02;
+
+ELSIF  min_regra_03 >  min_regra_04 and min_regra_03 >  min_regra_05   then
+    A_ativacao := min_regra_03;
+
+ELSIF  min_regra_04 >  min_regra_05   then
+    A_ativacao := min_regra_04;
+ELSE 
+   A_ativacao := min_regra_05;
+End_IF;
+//****************************************************************************************************************************************//
+
+IF pertinencia_erro_LL > pertinencia_X3 then
+   min_regra_06 := pertinencia_X3 ;
+ELSE 
+   min_regra_06 := pertinencia_erro_LL;
+End_IF;
+
+IF pertinencia_erro_L > pertinencia_X3  then
+   min_regra_07 := pertinencia_X3 ;
+ELSE 
+   min_regra_07 := pertinencia_erro_L;
+End_IF;
+
+IF pertinencia_erro_N > pertinencia_X2  then
+   min_regra_08 := pertinencia_X2;
+ELSE 
+   min_regra_08 := pertinencia_erro_N;
+End_IF;
+
+IF pertinencia_erro_H > pertinencia_X1 then
+   min_regra_09 := pertinencia_X1;
+ELSE 
+   min_regra_09 := pertinencia_erro_H;
+End_IF;
+
+IF pertinencia_erro_HH > pertinencia_X1 then
+   min_regra_10 := pertinencia_X1;
+ELSE 
+   min_regra_10 := pertinencia_erro_HH;
+End_IF;
+
+IF  min_regra_06 >  min_regra_07 and min_regra_06 >  min_regra_08 and min_regra_06 >  min_regra_09 and min_regra_06 >  min_regra_10 then
+    B_ativacao := min_regra_06;
+
+ELSIF  min_regra_07 >  min_regra_08 and min_regra_07 >  min_regra_09 and min_regra_07 >  min_regra_10  then
+    B_ativacao := min_regra_07;
+
+ELSIF  min_regra_08 >  min_regra_09 and min_regra_08 >  min_regra_10   then
+    B_ativacao := min_regra_08;
+
+ELSIF  min_regra_09 >  min_regra_10   then
+    B_ativacao := min_regra_09;
+ELSE 
+   B_ativacao := min_regra_10;
+End_IF;
+
+//****************************************************************************************************************************************//
+
+IF pertinencia_erro_LL > pertinencia_X4 then
+   min_regra_11 := pertinencia_X4;
+ELSE 
+   min_regra_11 := pertinencia_erro_LL;
+End_IF;
+
+IF pertinencia_erro_L > pertinencia_X4 then
+   min_regra_12 := pertinencia_X4;
+ELSE 
+   min_regra_12 := pertinencia_erro_L;
+End_IF;
+
+IF pertinencia_erro_N > pertinencia_X3 then
+   min_regra_13 := pertinencia_X3;
+ELSE 
+   min_regra_13 := pertinencia_erro_N;
+End_IF;
+
+IF pertinencia_erro_H > pertinencia_X2 then
+   min_regra_14 := pertinencia_X2;
+ELSE 
+   min_regra_14 := pertinencia_erro_H;
+End_IF;
+
+IF pertinencia_erro_HH > pertinencia_X2 then
+   min_regra_15 := pertinencia_X2;
+ELSE 
+   min_regra_15 := pertinencia_erro_HH;
+End_IF;
+
+IF  min_regra_11 >  min_regra_12 and min_regra_11 >  min_regra_13 and min_regra_11 >  min_regra_14 and min_regra_11 >  min_regra_15 then
+    C_ativacao := min_regra_11;
+
+ELSIF  min_regra_12 >  min_regra_13 and min_regra_12 >  min_regra_14 and min_regra_12 >  min_regra_15  then
+    C_ativacao := min_regra_12;
+
+ELSIF  min_regra_13 >  min_regra_14 and min_regra_13 >  min_regra_15   then
+    C_ativacao := min_regra_13;
+
+ELSIF  min_regra_14 >  min_regra_15   then
+    C_ativacao := min_regra_14;
+ELSE 
+    C_ativacao := min_regra_15;
+End_IF;
+//****************************************************************************************************************************************//
+IF pertinencia_erro_LL > pertinencia_X5 then
+   min_regra_16 := pertinencia_X5;
+ELSE 
+   min_regra_16 := pertinencia_erro_LL;
+End_IF;
+
+IF pertinencia_erro_L > pertinencia_X5 then
+   min_regra_17 := pertinencia_X5;
+ELSE 
+   min_regra_17 := pertinencia_erro_L;
+End_IF;
+
+IF pertinencia_erro_N > pertinencia_X4 then
+   min_regra_18 := pertinencia_X4;
+ELSE 
+   min_regra_18 := pertinencia_erro_N;
+End_IF;
+
+IF pertinencia_erro_H > pertinencia_X3 then
+   min_regra_19 := pertinencia_X3 ;
+ELSE 
+   min_regra_19 := pertinencia_erro_H;
+End_IF;
+
+IF pertinencia_erro_HH >pertinencia_X3  then
+   min_regra_20 := pertinencia_X3 ;
+ELSE 
+   min_regra_20 := pertinencia_erro_HH;
+End_IF;
+
+IF  min_regra_16 >  min_regra_17 and min_regra_16 >  min_regra_18 and min_regra_16 >  min_regra_19 and min_regra_16 >  min_regra_20 then
+    D_ativacao := min_regra_16;
+
+ELSIF  min_regra_17 >  min_regra_18 and min_regra_17 >  min_regra_19 and min_regra_17 >  min_regra_20  then
+    D_ativacao := min_regra_17;
+
+ELSIF  min_regra_18 >  min_regra_19 and min_regra_18 >  min_regra_20   then
+    D_ativacao := min_regra_18;
+
+ELSIF  min_regra_19 >  min_regra_20   then
+    D_ativacao := min_regra_19;
+ELSE 
+   D_ativacao := min_regra_20;
+End_IF;
+
+//****************************************************************************************************************************************//
+
+IF pertinencia_erro_LL > pertinencia_X6 then
+   min_regra_21 := pertinencia_X6;
+ELSE 
+   min_regra_21 := pertinencia_erro_LL;
+End_IF;
+
+IF pertinencia_erro_L > pertinencia_X6 then
+   min_regra_22 := pertinencia_X6;
+ELSE 
+   min_regra_22 := pertinencia_erro_L;
+End_IF;
+
+IF pertinencia_erro_N > pertinencia_X5 then
+   min_regra_23 := pertinencia_X5 ;
+ELSE 
+   min_regra_23 := pertinencia_erro_N;
+End_IF;
+
+IF pertinencia_erro_H > pertinencia_X4 then
+   min_regra_24 := pertinencia_X4;
+ELSE 
+   min_regra_24 := pertinencia_erro_H;
+End_IF;
+
+IF pertinencia_erro_HH > pertinencia_X4 then
+   min_regra_25 := pertinencia_X4;
+ELSE 
+   min_regra_25 := pertinencia_erro_HH;
+End_IF;
+
+IF  min_regra_21 >  min_regra_22 and min_regra_21 >  min_regra_23 and min_regra_21 >  min_regra_24 and min_regra_21 >  min_regra_25 then
+    E_ativacao := min_regra_21;
+
+ELSIF  min_regra_22 >  min_regra_23 and min_regra_22 >  min_regra_24 and min_regra_22 >  min_regra_25  then
+    E_ativacao := min_regra_22;
+
+ELSIF  min_regra_23 >  min_regra_24 and min_regra_23 >  min_regra_25   then
+    E_ativacao := min_regra_23;
+
+ELSIF  min_regra_24 >  min_regra_25   then
+    E_ativacao := min_regra_24;
+ELSE 
+   E_ativacao := min_regra_25;
+End_IF;
+
+//****************************************************************************************************************************************//
+
+IF pertinencia_erro_LL > pertinencia_X7 then
+   min_regra_26 := pertinencia_X7;
+ELSE 
+   min_regra_26 := pertinencia_erro_LL;
+End_IF;
+
+IF pertinencia_erro_L > pertinencia_X7 then
+   min_regra_27 := pertinencia_X7;
+ELSE 
+   min_regra_27 := pertinencia_erro_L;
+End_IF;
+
+IF pertinencia_erro_N > pertinencia_X6 then
+   min_regra_28 := pertinencia_X6 ;
+ELSE 
+   min_regra_28 := pertinencia_erro_N;
+End_IF;
+
+IF pertinencia_erro_H > pertinencia_X5 then
+   min_regra_29 := pertinencia_X5;
+ELSE 
+   min_regra_29 := pertinencia_erro_H;
+End_IF;
+
+IF pertinencia_erro_HH > pertinencia_X5 then
+   min_regra_30 := pertinencia_X5;
+ELSE 
+   min_regra_30 := pertinencia_erro_HH;
+End_IF;
+
+IF  min_regra_26 >  min_regra_27 and min_regra_26 >  min_regra_28 and min_regra_26 >  min_regra_29 and min_regra_26 >  min_regra_30 then
+    F_ativacao := min_regra_26;
+
+ELSIF  min_regra_27 >  min_regra_28 and min_regra_27 >  min_regra_29 and min_regra_27 >  min_regra_30  then
+    F_ativacao := min_regra_27;
+
+ELSIF  min_regra_28 >  min_regra_29 and min_regra_28 >  min_regra_30   then
+    F_ativacao := min_regra_28;
+
+ELSIF  min_regra_29 >  min_regra_30   then
+    F_ativacao := min_regra_29;
+ELSE 
+   F_ativacao:= min_regra_30;
+End_IF;
+
+//****************************************************************************************************************************************//
+
+IF pertinencia_erro_LL > pertinencia_X8 then
+   min_regra_31 := pertinencia_X8;
+ELSE 
+   min_regra_31 := pertinencia_erro_LL;
+End_IF;
+
+IF pertinencia_erro_L > pertinencia_X8 then
+   min_regra_32 := pertinencia_X8;
+ELSE 
+   min_regra_32 := pertinencia_erro_L;
+End_IF;
+
+IF pertinencia_erro_N > pertinencia_X7 then
+   min_regra_33 := pertinencia_X7 ;
+ELSE 
+   min_regra_33 := pertinencia_erro_N;
+End_IF;
+
+IF pertinencia_erro_H > pertinencia_X6 then
+   min_regra_34 := pertinencia_X6;
+ELSE 
+   min_regra_34 := pertinencia_erro_H;
+End_IF;
+
+IF pertinencia_erro_HH > pertinencia_X6 then
+   min_regra_35 := pertinencia_X6;
+ELSE 
+   min_regra_35 := pertinencia_erro_HH;
+End_IF;
+
+IF  min_regra_31 >  min_regra_32 and min_regra_31 >  min_regra_33 and min_regra_31 >  min_regra_34 and min_regra_31 >  min_regra_35 then
+    G_ativacao := min_regra_31;
+
+ELSIF  min_regra_32 >  min_regra_33 and min_regra_32 >  min_regra_34 and min_regra_32 >  min_regra_35  then
+    G_ativacao := min_regra_32;
+
+ELSIF  min_regra_33 >  min_regra_34 and min_regra_33 >  min_regra_35   then
+    G_ativacao := min_regra_33;
+
+ELSIF  min_regra_34 >  min_regra_35   then
+    G_ativacao := min_regra_34;
+ELSE 
+    G_ativacao:= min_regra_35;
+End_IF;
+
+//****************************************************************************************************************************************//
+
+IF pertinencia_erro_LL > pertinencia_X9 then
+   min_regra_36 := pertinencia_X9;
+ELSE 
+   min_regra_36 := pertinencia_erro_LL;
+End_IF;
+
+IF pertinencia_erro_L > pertinencia_X9 then
+   min_regra_37 := pertinencia_X9;
+ELSE 
+   min_regra_37 := pertinencia_erro_L;
+End_IF;
+
+IF pertinencia_erro_N > pertinencia_X8 then
+   min_regra_38 := pertinencia_X8 ;
+ELSE 
+   min_regra_38 := pertinencia_erro_N;
+End_IF;
+
+IF pertinencia_erro_H > pertinencia_X7 then
+   min_regra_39 := pertinencia_X7;
+ELSE 
+   min_regra_39 := pertinencia_erro_H;
+End_IF;
+
+IF pertinencia_erro_HH > pertinencia_X7 then
+   min_regra_40 := pertinencia_X7;
+ELSE 
+   min_regra_40 := pertinencia_erro_HH;
+End_IF;
+
+IF  min_regra_36 >  min_regra_37 and min_regra_36 >  min_regra_38 and min_regra_36 >  min_regra_39 and min_regra_36 >  min_regra_40 then
+    H_ativacao := min_regra_36;
+
+ELSIF  min_regra_37 >  min_regra_38 and min_regra_37 >  min_regra_39 and min_regra_37 >  min_regra_40  then
+    H_ativacao := min_regra_37;
+
+ELSIF  min_regra_38 >  min_regra_39 and min_regra_38 >  min_regra_40   then
+    H_ativacao := min_regra_38;
+
+ELSIF  min_regra_39 >  min_regra_40   then
+    H_ativacao := min_regra_39;
+ELSE 
+    H_ativacao:= min_regra_40;
+End_IF;
+//****************************************************************************************************************************************//
+
+IF pertinencia_erro_LL > pertinencia_X10 then
+   min_regra_41 := pertinencia_X10;
+ELSE 
+   min_regra_41 := pertinencia_erro_LL;
+End_IF;
+
+IF pertinencia_erro_L > pertinencia_X10 then
+   min_regra_42 := pertinencia_X10;
+ELSE 
+   min_regra_42 := pertinencia_erro_L;
+End_IF;
+
+IF pertinencia_erro_N > pertinencia_X9 then
+   min_regra_43 := pertinencia_X9 ;
+ELSE 
+   min_regra_43 := pertinencia_erro_N;
+End_IF;
+
+IF pertinencia_erro_H > pertinencia_X8 then
+   min_regra_44 := pertinencia_X8;
+ELSE 
+   min_regra_44 := pertinencia_erro_H;
+End_IF;
+
+IF pertinencia_erro_HH > pertinencia_X8 then
+   min_regra_45 := pertinencia_X8;
+ELSE 
+   min_regra_45 := pertinencia_erro_HH;
+End_IF;
+
+IF  min_regra_41 >  min_regra_42 and min_regra_41 >  min_regra_43 and min_regra_41 >  min_regra_44 and min_regra_41 >  min_regra_45 then
+    I_ativacao := min_regra_41;
+
+ELSIF  min_regra_42 >  min_regra_43 and min_regra_42 >  min_regra_44 and min_regra_42 >  min_regra_45  then
+    I_ativacao := min_regra_42;
+
+ELSIF  min_regra_43 >  min_regra_44 and min_regra_43 >  min_regra_45   then
+    I_ativacao := min_regra_43;
+
+ELSIF  min_regra_44 >  min_regra_45   then
+    I_ativacao := min_regra_44;
+ELSE 
+    I_ativacao:= min_regra_45;
+End_IF;
+//****************************************************************************************************************************************//
+
+IF pertinencia_erro_LL > pertinencia_X11 then
+   min_regra_46 := pertinencia_X11;
+ELSE 
+   min_regra_46 := pertinencia_erro_LL;
+End_IF;
+
+IF pertinencia_erro_L > pertinencia_X11 then
+   min_regra_47 := pertinencia_X11;
+ELSE 
+   min_regra_47 := pertinencia_erro_L;
+End_IF;
+
+IF pertinencia_erro_N > pertinencia_X10 then
+   min_regra_48 := pertinencia_X10 ;
+ELSE 
+   min_regra_48 := pertinencia_erro_N;
+End_IF;
+
+IF pertinencia_erro_H > pertinencia_X9 then
+   min_regra_49 := pertinencia_X9;
+ELSE 
+   min_regra_49 := pertinencia_erro_H;
+End_IF;
+
+IF pertinencia_erro_HH > pertinencia_X9 then
+   min_regra_50 := pertinencia_X9;
+ELSE 
+   min_regra_50 := pertinencia_erro_HH;
+End_IF;
+
+IF  min_regra_46 >  min_regra_47 and min_regra_46 >  min_regra_48 and min_regra_46 >  min_regra_49 and min_regra_46 >  min_regra_50 then
+    J_ativacao := min_regra_46;
+
+ELSIF  min_regra_47 >  min_regra_48 and min_regra_47 >  min_regra_49 and min_regra_47 >  min_regra_50  then
+    J_ativacao := min_regra_47;
+
+ELSIF  min_regra_48 >  min_regra_49 and min_regra_48 >  min_regra_50  then
+    J_ativacao := min_regra_48;
+
+ELSIF  min_regra_49 >  min_regra_50   then
+    J_ativacao := min_regra_49;
+ELSE 
+    J_ativacao:= min_regra_50;
+End_IF;
+//****************************************************************************************************************************************//
+
+IF pertinencia_erro_LL > pertinencia_X12 then
+   min_regra_51 := pertinencia_X12;
+ELSE 
+   min_regra_51 := pertinencia_erro_LL;
+End_IF;
+
+IF pertinencia_erro_L > pertinencia_X12 then
+   min_regra_52 := pertinencia_X12;
+ELSE 
+   min_regra_52 := pertinencia_erro_L;
+End_IF;
+
+IF pertinencia_erro_N > pertinencia_X11 then
+   min_regra_53 := pertinencia_X11 ;
+ELSE 
+   min_regra_53 := pertinencia_erro_N;
+End_IF;
+
+IF pertinencia_erro_H > pertinencia_X10 then
+   min_regra_54 := pertinencia_X10;
+ELSE 
+   min_regra_54 := pertinencia_erro_H;
+End_IF;
+
+IF pertinencia_erro_HH > pertinencia_X10 then
+   min_regra_55 := pertinencia_X10;
+ELSE 
+   min_regra_55 := pertinencia_erro_HH;
+End_IF;
+
+IF  min_regra_51>  min_regra_52 and min_regra_51 >  min_regra_53 and min_regra_51 >  min_regra_54 and min_regra_51 >  min_regra_55 then
+    K_ativacao := min_regra_51;
+
+ELSIF  min_regra_52 >  min_regra_53 and min_regra_52 >  min_regra_54 and min_regra_52 >  min_regra_55  then
+    K_ativacao := min_regra_52;
+
+ELSIF  min_regra_53 >  min_regra_54 and min_regra_53 >  min_regra_55  then
+    K_ativacao := min_regra_53;
+
+ELSIF  min_regra_54 >  min_regra_55   then
+    K_ativacao := min_regra_54;
+ELSE 
+    K_ativacao:= min_regra_55;
+End_IF;
+//****************************************************************************************************************************************//
+
+IF pertinencia_erro_LL > pertinencia_X13 then
+   min_regra_56 := pertinencia_X13;
+ELSE 
+   min_regra_56 := pertinencia_erro_LL;
+End_IF;
+
+IF pertinencia_erro_L > pertinencia_X13 then
+   min_regra_57 := pertinencia_X13;
+ELSE 
+   min_regra_57 := pertinencia_erro_L;
+End_IF;
+
+IF pertinencia_erro_N > pertinencia_X12 then
+   min_regra_58 := pertinencia_X12 ;
+ELSE 
+   min_regra_58 := pertinencia_erro_N;
+End_IF;
+
+IF pertinencia_erro_H > pertinencia_X11 then
+   min_regra_59 := pertinencia_X11;
+ELSE 
+   min_regra_59 := pertinencia_erro_H;
+End_IF;
+
+IF pertinencia_erro_HH > pertinencia_X11 then
+   min_regra_60 := pertinencia_X11;
+ELSE 
+   min_regra_60 := pertinencia_erro_HH;
+End_IF;
+
+IF  min_regra_56>  min_regra_57 and min_regra_56 >  min_regra_58 and min_regra_56 >  min_regra_59 and min_regra_56 >  min_regra_60 then
+    L_ativacao := min_regra_56;
+
+ELSIF  min_regra_57 >  min_regra_58 and min_regra_57 >  min_regra_59 and min_regra_57 >  min_regra_60 then
+    L_ativacao := min_regra_57;
+
+ELSIF  min_regra_58 >  min_regra_59 and min_regra_58 >  min_regra_60  then
+    L_ativacao := min_regra_58;
+
+ELSIF  min_regra_59 >  min_regra_60   then
+    L_ativacao := min_regra_59;
+ELSE 
+    L_ativacao:= min_regra_60;
+End_IF;
+//****************************************************************************************************************************************//
+
+IF pertinencia_erro_LL > pertinencia_X14 then
+   min_regra_61 := pertinencia_X14;
+ELSE 
+   min_regra_61 := pertinencia_erro_LL;
+End_IF;
+
+IF pertinencia_erro_L > pertinencia_X14 then
+   min_regra_62 := pertinencia_X14;
+ELSE 
+   min_regra_62 := pertinencia_erro_L;
+End_IF;
+
+IF pertinencia_erro_N > pertinencia_X13 then
+   min_regra_63 := pertinencia_X13 ;
+ELSE 
+   min_regra_63 := pertinencia_erro_N;
+End_IF;
+
+IF pertinencia_erro_H > pertinencia_X12 then
+   min_regra_64 := pertinencia_X12;
+ELSE 
+   min_regra_64 := pertinencia_erro_H;
+End_IF;
+
+IF pertinencia_erro_HH > pertinencia_X12 then
+   min_regra_65 := pertinencia_X12;
+ELSE 
+   min_regra_65 := pertinencia_erro_HH;
+End_IF;
+
+IF  min_regra_61>  min_regra_62 and min_regra_61 >  min_regra_63 and min_regra_61 >  min_regra_64 and min_regra_61 >  min_regra_65 then
+    M_ativacao := min_regra_61;
+
+ELSIF  min_regra_62 >  min_regra_63 and min_regra_62 >  min_regra_64 and min_regra_62 >  min_regra_65 then
+    M_ativacao := min_regra_62;
+
+ELSIF  min_regra_63 >  min_regra_64 and min_regra_63 >  min_regra_65  then
+    M_ativacao := min_regra_63;
+
+ELSIF  min_regra_64 >  min_regra_65   then
+    M_ativacao := min_regra_64;
+ELSE 
+    M_ativacao:= min_regra_65;
+End_IF;
+//****************************************************************************************************************************************//
+
+IF pertinencia_erro_LL > pertinencia_X15 then
+   min_regra_66 := pertinencia_X15;
+ELSE 
+   min_regra_66 := pertinencia_erro_LL;
+End_IF;
+
+IF pertinencia_erro_L > pertinencia_X15 then
+   min_regra_67 := pertinencia_X15;
+ELSE 
+   min_regra_67 := pertinencia_erro_L;
+End_IF;
+
+IF pertinencia_erro_N > pertinencia_X14 then
+   min_regra_68 := pertinencia_X14 ;
+ELSE 
+   min_regra_68 := pertinencia_erro_N;
+End_IF;
+
+IF pertinencia_erro_H > pertinencia_X13 then
+   min_regra_69 := pertinencia_X13;
+ELSE 
+   min_regra_69 := pertinencia_erro_H;
+End_IF;
+
+IF pertinencia_erro_HH > pertinencia_X13 then
+   min_regra_70 := pertinencia_X13;
+ELSE 
+   min_regra_70 := pertinencia_erro_HH;
+End_IF;
+
+IF  min_regra_66>  min_regra_67 and min_regra_66 >  min_regra_68 and min_regra_66 >  min_regra_69 and min_regra_66 >  min_regra_70 then
+    N_ativacao := min_regra_66;
+
+ELSIF  min_regra_67 >  min_regra_68 and min_regra_67 >  min_regra_69 and min_regra_67 >  min_regra_70 then
+    N_ativacao := min_regra_67;
+
+ELSIF  min_regra_68 >  min_regra_69 and min_regra_68 >  min_regra_70  then
+    N_ativacao := min_regra_68;
+
+ELSIF  min_regra_69 >  min_regra_70   then
+    N_ativacao := min_regra_69;
+ELSE 
+    N_ativacao:= min_regra_70;
+End_IF;
+//****************************************************************************************************************************************//
+
+IF pertinencia_erro_LL > pertinencia_X16 then
+   min_regra_76 := pertinencia_X16;
+ELSE 
+   min_regra_76 := pertinencia_erro_LL;
+End_IF;
+
+IF pertinencia_erro_L > pertinencia_X16 then
+   min_regra_77 := pertinencia_X16;
+ELSE 
+   min_regra_77 := pertinencia_erro_L;
+End_IF;
+
+IF pertinencia_erro_N > pertinencia_X15 then
+   min_regra_78 := pertinencia_X15 ;
+ELSE 
+   min_regra_78 := pertinencia_erro_N;
+End_IF;
+
+IF pertinencia_erro_H > pertinencia_X14 then
+   min_regra_79 := pertinencia_X14;
+ELSE 
+   min_regra_79 := pertinencia_erro_H;
+End_IF;
+
+IF pertinencia_erro_HH > pertinencia_X14 then
+   min_regra_80 := pertinencia_X14;
+ELSE 
+   min_regra_80 := pertinencia_erro_HH;
+End_IF;
+
+IF  min_regra_76>  min_regra_77 and min_regra_76 >  min_regra_77 and min_regra_76 >  min_regra_78 and min_regra_76 >  min_regra_80 then
+    P_ativacao := min_regra_76;
+
+ELSIF  min_regra_77 >  min_regra_78 and min_regra_77 >  min_regra_79 and min_regra_77 >  min_regra_80 then
+    O_ativacao := min_regra_77;
+
+ELSIF  min_regra_78 >  min_regra_79 and min_regra_78 >  min_regra_80  then
+    O_ativacao := min_regra_78;
+
+ELSIF  min_regra_79 >  min_regra_80   then
+    O_ativacao := min_regra_79;
+ELSE 
+    O_ativacao:= min_regra_80;
+End_IF;
+//****************************************************************************************************************************************//
+
+IF pertinencia_erro_LL > pertinencia_X17 then
+   min_regra_81 := pertinencia_X17;
+ELSE 
+   min_regra_81 := pertinencia_erro_LL;
+End_IF;
+
+IF pertinencia_erro_L > pertinencia_X17 then
+   min_regra_82 := pertinencia_X17;
+ELSE 
+   min_regra_82 := pertinencia_erro_L;
+End_IF;
+
+IF pertinencia_erro_N > pertinencia_X16 then
+   min_regra_83 := pertinencia_X16 ;
+ELSE 
+   min_regra_83 := pertinencia_erro_N;
+End_IF;
+
+IF pertinencia_erro_H > pertinencia_X15 then
+   min_regra_84 := pertinencia_X15;
+ELSE 
+   min_regra_84 := pertinencia_erro_H;
+End_IF;
+
+IF pertinencia_erro_HH > pertinencia_X15 then
+   min_regra_85 := pertinencia_X15;
+ELSE 
+   min_regra_85 := pertinencia_erro_HH;
+End_IF;
+
+IF  min_regra_81>  min_regra_82 and min_regra_81 >  min_regra_83 and min_regra_81 >  min_regra_84 and min_regra_81 >  min_regra_85 then
+    P_ativacao := min_regra_81;
+
+ELSIF  min_regra_82 >  min_regra_83 and min_regra_82 >  min_regra_84 and min_regra_82 >  min_regra_85 then
+    P_ativacao := min_regra_82;
+
+ELSIF  min_regra_83 >  min_regra_84 and min_regra_83 >  min_regra_85  then
+    P_ativacao := min_regra_83;
+
+ELSIF  min_regra_84 >  min_regra_85   then
+    P_ativacao := min_regra_84;
+ELSE 
+    P_ativacao:= min_regra_85;
+End_IF;
+//****************************************************************************************************************************************//
+
+IF pertinencia_erro_LL > pertinencia_X18 then
+   min_regra_86 := pertinencia_X18;
+ELSE 
+   min_regra_86 := pertinencia_erro_LL;
+End_IF;
+
+IF pertinencia_erro_L > pertinencia_X18 then
+   min_regra_87 := pertinencia_X18;
+ELSE 
+   min_regra_87 := pertinencia_erro_L;
+End_IF;
+
+IF pertinencia_erro_N > pertinencia_X17 then
+   min_regra_88 := pertinencia_X17 ;
+ELSE 
+   min_regra_88 := pertinencia_erro_N;
+End_IF;
+
+IF pertinencia_erro_H > pertinencia_X16 then
+   min_regra_89 := pertinencia_X16;
+ELSE 
+   min_regra_89 := pertinencia_erro_H;
+End_IF;
+
+IF pertinencia_erro_HH > pertinencia_X16 then
+   min_regra_90 := pertinencia_X16;
+ELSE 
+   min_regra_90 := pertinencia_erro_HH;
+End_IF;
+
+IF  min_regra_86>  min_regra_87 and min_regra_86 >  min_regra_88 and min_regra_86 >  min_regra_89 and min_regra_86 >  min_regra_90 then
+    Q_ativacao := min_regra_86;
+
+ELSIF  min_regra_87 >  min_regra_88 and min_regra_87 >  min_regra_89 and min_regra_87 >  min_regra_90 then
+    Q_ativacao := min_regra_87;
+
+ELSIF  min_regra_88 >  min_regra_89 and min_regra_88 >  min_regra_90  then
+    Q_ativacao := min_regra_88;
+
+ELSIF  min_regra_89 >  min_regra_90   then
+    Q_ativacao := min_regra_89;
+ELSE 
+    Q_ativacao:= min_regra_90;
+End_IF;
+//****************************************************************************************************************************************//
+
+IF pertinencia_erro_LL > pertinencia_X19 then
+   min_regra_91 := pertinencia_X19;
+ELSE 
+   min_regra_91 := pertinencia_erro_LL;
+End_IF;
+
+IF pertinencia_erro_L > pertinencia_X19 then
+   min_regra_92 := pertinencia_X19;
+ELSE 
+   min_regra_92 := pertinencia_erro_L;
+End_IF;
+
+IF pertinencia_erro_N > pertinencia_X18 then
+   min_regra_93 := pertinencia_X18 ;
+ELSE 
+   min_regra_93 := pertinencia_erro_N;
+End_IF;
+
+IF pertinencia_erro_H > pertinencia_X17 then
+   min_regra_94 := pertinencia_X17;
+ELSE 
+   min_regra_94 := pertinencia_erro_H;
+End_IF;
+
+IF pertinencia_erro_HH > pertinencia_X17 then
+   min_regra_95 := pertinencia_X17;
+ELSE 
+   min_regra_95 := pertinencia_erro_HH;
+End_IF;
+
+IF  min_regra_91>  min_regra_92 and min_regra_91 >  min_regra_93 and min_regra_91 >  min_regra_94 and min_regra_91 >  min_regra_95 then
+    R_ativacao := min_regra_91;
+
+ELSIF  min_regra_92 >  min_regra_93 and min_regra_92 >  min_regra_94 and min_regra_92 >  min_regra_95 then
+    R_ativacao := min_regra_92;
+
+ELSIF  min_regra_93 >  min_regra_94 and min_regra_93 >  min_regra_95  then
+    R_ativacao := min_regra_93;
+
+ELSIF  min_regra_94 >  min_regra_95   then
+    R_ativacao := min_regra_94;
+ELSE 
+    R_ativacao:= min_regra_95;
+End_IF;
+//****************************************************************************************************************************************//
+
+IF pertinencia_erro_LL > pertinencia_X20 then
+   min_regra_96 := pertinencia_X20;
+ELSE 
+   min_regra_96 := pertinencia_erro_LL;
+End_IF;
+
+IF pertinencia_erro_L > pertinencia_X20 then
+   min_regra_97 := pertinencia_X20;
+ELSE 
+   min_regra_97 := pertinencia_erro_L;
+End_IF;
+
+IF pertinencia_erro_N > pertinencia_X19 then
+   min_regra_98 := pertinencia_X19 ;
+ELSE 
+   min_regra_98 := pertinencia_erro_N;
+End_IF;
+
+IF pertinencia_erro_H > pertinencia_X18 then
+   min_regra_99 := pertinencia_X18;
+ELSE 
+   min_regra_99 := pertinencia_erro_H;
+End_IF;
+
+IF pertinencia_erro_HH > pertinencia_X18 then
+   min_regra_100 := pertinencia_X18;
+ELSE 
+   min_regra_100 := pertinencia_erro_HH;
+End_IF;
+
+IF  min_regra_96>  min_regra_97 and min_regra_96 >  min_regra_98 and min_regra_96 >  min_regra_99 and min_regra_96 >  min_regra_100 then
+    S_ativacao := min_regra_96;
+
+ELSIF  min_regra_97 >  min_regra_98 and min_regra_97 >  min_regra_99 and min_regra_97 >  min_regra_100 then
+    S_ativacao := min_regra_97;
+
+ELSIF  min_regra_98 >  min_regra_99 and min_regra_98 >  min_regra_100  then
+    S_ativacao := min_regra_98;
+
+ELSIF  min_regra_99 >  min_regra_100   then
+    S_ativacao := min_regra_99;
+ELSE 
+    S_ativacao:= min_regra_100;
+End_IF;
+//****************************************************************************************************************************************//
+
+IF pertinencia_erro_LL > pertinencia_X21 then
+   min_regra_101 := pertinencia_X21;
+ELSE 
+   min_regra_101 := pertinencia_erro_LL;
+End_IF;
+
+IF pertinencia_erro_L > pertinencia_X21 then
+   min_regra_102 := pertinencia_X21;
+ELSE 
+   min_regra_102 := pertinencia_erro_L;
+End_IF;
+
+IF pertinencia_erro_N > pertinencia_X20 then
+   min_regra_103 := pertinencia_X20 ;
+ELSE 
+   min_regra_103 := pertinencia_erro_N;
+End_IF;
+
+IF pertinencia_erro_H > pertinencia_X19 then
+   min_regra_104 := pertinencia_X19;
+ELSE 
+   min_regra_104 := pertinencia_erro_H;
+End_IF;
+
+IF pertinencia_erro_HH > pertinencia_X19 then
+   min_regra_105 := pertinencia_X19;
+ELSE 
+   min_regra_105 := pertinencia_erro_HH;
+End_IF;
+
+IF  min_regra_101>  min_regra_102 and min_regra_101 >  min_regra_103 and min_regra_101 >  min_regra_104 and min_regra_101 >  min_regra_105 then
+    T_ativacao := min_regra_101;
+
+ELSIF  min_regra_102 >  min_regra_103 and min_regra_102 >  min_regra_104 and min_regra_102 >  min_regra_105 then
+   T_ativacao  := min_regra_102;
+
+ELSIF  min_regra_103 >  min_regra_104 and min_regra_103 >  min_regra_105  then
+    T_ativacao  := min_regra_103;
+
+ELSIF  min_regra_104 >  min_regra_105  then
+    T_ativacao  := min_regra_104;
+ELSE 
+    T_ativacao := min_regra_105;
+End_IF;
+//****************************************************************************************************************************************//
+
+IF pertinencia_erro_H > pertinencia_X20 then
+   min_regra_106 := pertinencia_X20;
+ELSE 
+   min_regra_106 := pertinencia_erro_H;
+End_IF;
+
+IF pertinencia_erro_HH > pertinencia_X20 then
+   min_regra_107 := pertinencia_X20;
+ELSE 
+   min_regra_107 := pertinencia_erro_HH;
+End_IF;
+
+IF pertinencia_erro_N > pertinencia_X21 then
+   min_regra_108 := pertinencia_X21 ;
+ELSE 
+   min_regra_108 := pertinencia_erro_N;
+End_IF;
+
+IF pertinencia_erro_H > pertinencia_X21 then
+   min_regra_109 := pertinencia_X21;
+ELSE 
+   min_regra_109 := pertinencia_erro_H;
+End_IF;
+
+IF pertinencia_erro_HH > pertinencia_X21 then
+   min_regra_110 := pertinencia_X21;
+ELSE 
+   min_regra_110 := pertinencia_erro_HH;
+End_IF;
+
+IF  min_regra_106>  min_regra_107 and min_regra_106 >  min_regra_108 and min_regra_106 >  min_regra_109 and min_regra_106 >  min_regra_110 then
+    U_ativacao := min_regra_106;
+
+ELSIF  min_regra_107 >  min_regra_108 and min_regra_107 >  min_regra_109 and min_regra_107 >  min_regra_110 then
+   U_ativacao  := min_regra_107;
+
+ELSIF  min_regra_108 >  min_regra_109 and min_regra_108 >  min_regra_110  then
+    U_ativacao  := min_regra_108;
+
+ELSIF  min_regra_109 >  min_regra_110  then
+    U_ativacao  := min_regra_109;
+ELSE 
+    U_ativacao := min_regra_110;
+End_IF;
+//**********************************************creates numerators*********************************************************************************//
+
+numerador_A_ativacao := (0*A_ativacao);
+numerador_B_ativacao := (5*B_ativacao);
+numerador_C_ativacao := (10*C_ativacao);
+numerador_D_ativacao := (15*D_ativacao);
+numerador_E_ativacao := (20*E_ativacao);
+numerador_F_ativacao := (25*F_ativacao);
+numerador_G_ativacao := (30*G_ativacao);
+numerador_H_ativacao := (35*H_ativacao);
+numerador_I_ativacao := (40*I_ativacao);
+numerador_J_ativacao := (45*J_ativacao);
+numerador_K_ativacao := (50*K_ativacao);
+numerador_L_ativacao := (55*L_ativacao);
+numerador_M_ativacao := (60*M_ativacao);
+numerador_N_ativacao := (65*N_ativacao);
+numerador_O_ativacao := (70*O_ativacao);
+numerador_P_ativacao := (75*P_ativacao);
+numerador_Q_ativacao := (80*Q_ativacao);
+numerador_R_ativacao := (85*R_ativacao);
+numerador_S_ativacao := (90*S_ativacao);
+numerador_T_ativacao := (95*T_ativacao);
+numerador_U_ativacao := (100*U_ativacao);
+//**********************************************Defuzzificação pelo método do centro de gravidade ************************************************//
+
+numerador :=  numerador_A_ativacao+numerador_B_ativacao +numerador_C_ativacao+numerador_D_ativacao+ numerador_E_ativacao+numerador_F_ativacao+numerador_G_ativacao+numerador_H_ativacao+numerador_I_ativacao+numerador_J_ativacao+numerador_K_ativacao+numerador_L_ativacao+numerador_M_ativacao+numerador_N_ativacao+numerador_O_ativacao+numerador_P_ativacao+numerador_Q_ativacao+numerador_R_ativacao+numerador_S_ativacao+numerador_T_ativacao+numerador_U_ativacao;
+denominador := A_ativacao + B_ativacao + C_ativacao + D_ativacao + E_ativacao+F_ativacao+G_ativacao+H_ativacao+I_ativacao+J_ativacao+K_ativacao+L_ativacao+M_ativacao+N_ativacao+O_ativacao+P_ativacao+Q_ativacao+R_ativacao+S_ativacao+T_ativacao+U_ativacao;
+
+//********************************************** Evitar dvisão por zero *************************************************************************//
+
+IF denominador = 0 THEN
+   saida :=0;
+ELSE
+   saida :=numerador/denominador;
+End_IF;
+
+
+//**********************************************Suavização Feedback do Motor *************************************************************************//
+TONR(Tempo_de_Suavizacao_Feedback_do_Motor);
+Tempo_de_Suavizacao_Feedback_do_Motor.PRE:= entrada_suavizacao_feedback_motor;
+
+IF habilita_suavizacao THEN
+   frequencia:= motor_feedback;
+
+ELSE;
+  Tempo_de_Suavizacao_Feedback_do_Motor.TimerEnable :=1;
+
+End_IF;
+
+IF Tempo_de_Suavizacao_Feedback_do_Motor.DN THEN
+   habilita_suavizacao:=1;
+
+ELSE
+  habilita_suavizacao:=0;
+
+End_IF;
+//**********************************************Calcula ERRO ******************************************************************************************//
+erro := (SP-PV)*100/SP;
+
+
